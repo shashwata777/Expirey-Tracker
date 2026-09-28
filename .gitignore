@@ -1,0 +1,55 @@
+# ==========================================
+# Root .gitignore - ExpiryGuard
+# ==========================================
+
+# Environment variables (CRITICAL: Do NOT push to Git)
+.env
+.env.*
+!.env.example
+*.env
+client/.env
+client/.env.*
+!client/.env.example
+server/.env
+server/.env.*
+!server/.env.example
+
+# Dependencies
+node_modules/
+*/node_modules/
+.pnp
+.pnp.js
+
+# Build outputs
+dist/
+dist-ssr/
+build/
+*/dist/
+*/build/
+*.tsbuildinfo
+
+# Logs & Runtime
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+logs/
+*/logs/
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Editor & OS files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+.gemini/

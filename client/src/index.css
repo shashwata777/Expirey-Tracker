@@ -1,0 +1,125 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --bg-primary: #0d0805;
+    --bg-surface: #160e08;
+    --bg-card: #20150d;
+    --border-amber: rgba(245, 158, 11, 0.2);
+    --gold-glow: rgba(245, 158, 11, 0.4);
+  }
+
+  body {
+    background-color: #0d0805;
+    color: #f5eadb;
+    font-family: 'Outfit', 'Inter', system-ui, sans-serif;
+    overflow-x: hidden;
+  }
+
+  /* Custom glassmorphism scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #120b06;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #3d2b1c;
+    border-radius: 4px;
+    border: 2px solid #120b06;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #d97706;
+  }
+}
+
+@layer components {
+  /* 3D Glassmorphism Cards */
+  .glass-card {
+    background: linear-gradient(135deg, rgba(32, 21, 13, 0.75) 0%, rgba(20, 13, 8, 0.85) 100%);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(245, 158, 11, 0.18);
+    box-shadow: 0 15px 35px -5px rgba(0, 0, 0, 0.6), 0 0 15px rgba(245, 158, 11, 0.08);
+  }
+
+  .glass-card-hover {
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .glass-card-hover:hover {
+    transform: translateY(-4px);
+    border-color: rgba(251, 191, 36, 0.45);
+    box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.8), 0 0 30px rgba(245, 158, 11, 0.25);
+  }
+
+  .glass-input {
+    background: rgba(18, 12, 7, 0.7);
+    border: 1px solid rgba(245, 158, 11, 0.22);
+    color: #faf6f0;
+    transition: all 0.2s ease;
+  }
+  .glass-input:focus {
+    outline: none;
+    border-color: #f59e0b;
+    box-shadow: 0 0 15px rgba(245, 158, 11, 0.35);
+    background: rgba(24, 16, 10, 0.9);
+  }
+
+  .btn-gold-glow {
+    background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+    color: #0f0a06;
+    font-weight: 600;
+    box-shadow: 0 4px 20px rgba(245, 158, 11, 0.4);
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .btn-gold-glow:hover {
+    background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+    box-shadow: 0 6px 28px rgba(251, 191, 36, 0.6);
+    transform: translateY(-2px);
+  }
+  .btn-gold-glow:active {
+    transform: translateY(0);
+  }
+
+  .btn-ghost-brown {
+    background: rgba(40, 27, 17, 0.6);
+    border: 1px solid rgba(245, 158, 11, 0.25);
+    color: #f5eadb;
+    transition: all 0.2s ease;
+  }
+  .btn-ghost-brown:hover {
+    background: rgba(61, 43, 28, 0.8);
+    border-color: rgba(251, 191, 36, 0.5);
+    color: #fbbf24;
+  }
+
+  /* 3D Gold Accent Text */
+  .gold-gradient-text {
+    background: linear-gradient(135deg, #fef3c7 0%, #fbbf24 50%, #d97706 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  /* Radial warm glow background utility */
+  .ambient-gold-glow {
+    position: absolute;
+    border-radius: 9999px;
+    filter: blur(90px);
+    pointer-events: none;
+    z-index: 0;
+  }
+}
+
+/* Perspective settings for 3D card tilts */
+.perspective-1000 {
+  perspective: 1000px;
+}
+.preserve-3d {
+  transform-style: preserve-3d;
+}
+.backface-hidden {
+  backface-visibility: hidden;
+}
